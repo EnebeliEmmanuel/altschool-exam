@@ -1,11 +1,12 @@
 import { React, useState } from "react";
-
+import { AnimatePresence } from "framer-motion";
 import VisibilitySensor from "react-visibility-sensor";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import images from "../images";
+import Modal from "../Modal";
 function Hero() {
- 
+  const [showModal, setShowModal] = useState();
   return (
    
     //  
@@ -25,15 +26,39 @@ function Hero() {
       <div className="flex flex-col flex-1 w-full justify-end">
         <h3 className="text-white font-audio text-5xl  xl:text-7xl ">
           <span className="block">Welcome Users</span>{" "}
-          <span className="block md:inline">Make sure you log in</span> to access the game
+          <span className="block md:inline">Make sure you log in</span> to access the game 
         </h3>
-        <div className="mt-6 flex flex-col small:flex-row small:items-center">
+        <div className="mt-12 flex  small:flex-row small:items-center">
           <Link
             to="/login"
             className="inline-block bg-black w-fit px-10 py-3 text-center  rounded-md shadow"
           >
             Login
           </Link>
+          <div className="flex ml-8 ">
+            <button
+              onClick={() => {
+                setShowModal(true);
+              }}
+              className="px-9 py-3 uppercase text-white rounded-lg border-[1px] font-semibold text-base tracking-widest transition-all hover:bg-white focus:bg-white hover:text-dark-text focus:text-dark-text bg-transparent border-white"
+            >
+              Rules
+            </button>
+          </div>
+          <AnimatePresence>
+            {showModal && (
+              <motion.div
+                className="fixed"
+                key="modal"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25 }}
+                exit={{ opacity: 0 }}
+              >
+                <Modal setShowModal={setShowModal} />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
       <div className="flex-1 w-full">
@@ -44,8 +69,7 @@ function Hero() {
          
           src={images.desktop}
          
-          allowFullScreen
-          title="Embedded youtube"
+         
         />
       </div>
     </motion.div>
