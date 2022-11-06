@@ -8,31 +8,32 @@ const Login = () => {
   let success = location.state?.success;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const { handleAuthLogin } = useAuth();
   let navigate = useNavigate();
 
   useEffect(() => {
     if (success) {
       toast.success(success);
+      navigate("/login", { state: undefined });
     }
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     let res = await handleAuthLogin(username, password);
     if (res.success) {
-      navigate("/", {
+      navigate("/game", {
         state: {
           username,
         },
       });
-      setError("");
+      // setError("");
       setUsername("");
       setPassword("");
     } else {
       console.log(res.error);
       toast.error(res.error);
-      setError(res.error);
+      // setError(res.error);
     }
   };
   return (
@@ -71,15 +72,15 @@ const Login = () => {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-[#232221] hover:bg-[#343230] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Sign In
+              Login
             </button>
             <Link
-              className="inline-block align-baseline font-bold text-sm text-orange-400 hover:text-orange-600"
+              className="inline-block align-baseline font-bold text-sm text-[#232221]"
               to="/register"
             >
-              Register
+              No account yet? Signup
             </Link>
           </div>
         </form>

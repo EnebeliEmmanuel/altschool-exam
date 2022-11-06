@@ -7,14 +7,14 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   const { handleAuthRegister } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
-      setError("error");
+      // setError("error");
     } else {
       toast.loading();
       await handleAuthRegister(username, password);
@@ -69,15 +69,15 @@ const Register = () => {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-[#232221] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Sign In
             </button>
             <Link
-              className="inline-block align-baseline font-bold text-sm text-orange-400 hover:text-orange-600"
+              className="inline-block align-baseline font-bold text-sm text-[#232221]"
               to="/login"
             >
-              Login
+              Existing account? Login
             </Link>
           </div>
         </form>

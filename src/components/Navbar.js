@@ -4,9 +4,10 @@ import { BsChevronDown } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import images from "../images";
-
+import useAuth from "../hooks/useAuth";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
+  const { token, handleAuthLogout } = useAuth();
 
   return (
     <nav
@@ -45,35 +46,53 @@ const Navbar = () => {
             }`}
           >
             <ul className=" mt-10 md:mt-0 items-center justify-center  lg:gap-2  space-y-8 md:flex md:space-x-1 lg:space-x-4 md:space-y-0">
-             
               <li
                 onClick={() => setNavbar(false)}
                 className="text-[#E5E5E5]  text-[24px] "
               >
                 <Link to="/game">PlayGame</Link>
               </li>
-              
-              
             </ul>
 
             <div className="mt-3 space-y-2  md:hidden ">
-              <Link
-                to="/login"
-                onClick={() => setNavbar(false)}
-                className="inline-block max-w-xs bg-white w-full px-4 py-2 text-center  rounded-md shadow"
-              >
-                login
-              </Link>
+              {token ? (
+                <button
+                  onClick={() => {
+                    setNavbar(false);
+                    handleAuthLogout();
+                  }}
+                  className="inline-block max-w-xs bg-white w-full px-4 py-2 text-center  rounded-md shadow"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setNavbar(false)}
+                  className="inline-block max-w-xs bg-white w-full px-4 py-2 text-center  rounded-md shadow"
+                >
+                  login
+                </Link>
+              )}
             </div>
           </div>
         </div>
         <div className="hidden space-x-2 md:inline-block">
-          <Link
-            to="/login"
-            className="inline-block text-white bg-black w-full px-12 py-2 text-center  rounded-md shadow"
-          >
-            login
-          </Link>
+          {token ? (
+            <button
+              onClick={handleAuthLogout}
+              className="inline-block text-white bg-black w-full px-12 py-2 text-center  rounded-md shadow"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="inline-block text-white bg-black w-full px-12 py-2 text-center  rounded-md shadow"
+            >
+              login
+            </Link>
+          )}
         </div>
       </div>
     </nav>

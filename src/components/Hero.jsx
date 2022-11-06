@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import images from "../images";
 import Modal from "../Modal";
+import useAuth from "../hooks/useAuth";
 function Hero() {
   const [showModal, setShowModal] = useState();
+  const {token} = useAuth()
   return (
    
     //  
@@ -23,18 +25,20 @@ function Hero() {
       whileInView={{ opacity: 1 }}
       className="mt-16 md:mt-24 px-3 sm:px-6 max-w-[1240px] mx-auto  flex gap-8 flex-col items-center sm:flex-row justify-between flex-wrap md:flex-nowrap"
     >
-      <div className="flex flex-col flex-1 w-full justify-end">
-        <h3 className="text-white font-audio text-5xl  xl:text-7xl ">
+      <div className="flex flex-col flex-1 w-full items-center sm:justify-end">
+        <h3 className="text-white font-audio text-2xl  sm:text-5xl  xl:text-7xl ">
           <span className="block">Welcome Users</span>{" "}
           <span className="block md:inline">Make sure you log in</span> to access the game 
         </h3>
-        <div className="mt-12 flex  small:flex-row small:items-center">
-          <Link
+        <div className="mt-12 flex  sm:self-start small:flex-row small:items-center">
+          {!token && (
+            <Link
             to="/login"
             className="inline-block bg-black w-fit px-10 py-3 text-center  rounded-md shadow"
           >
             Login
           </Link>
+          )}
           <div className="flex ml-8 ">
             <button
               onClick={() => {

@@ -10,29 +10,24 @@ import { ErrorBoundary } from "react-error-boundary";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 
-
 function ErrorFallback({ error }) {
-  return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre style={{ color: "red" }}>{error.message}</pre>
-    </div>
-  );
+  return <ErrorPage error={error} />;
 }
 
 const App = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <Navbar/>
-    <Routes>
-      
-      <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-      <Route path="error" element={<ErrorPage />} />
-      <Route path="*" element={<NotFound />} />
-      <Route path="game" element={<PlayGame />} />
-    </Routes>
+      <Navbar />
+      <Routes>
+        <Route path="/">
+          <Route index={true} element={<Home />} />
+        </Route>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="error" element={<ErrorPage />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="game" element={<PlayGame />} />
+      </Routes>
     </ErrorBoundary>
   );
 };
