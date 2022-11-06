@@ -19,7 +19,12 @@ module.exports = {
       backgroundImage: {
         'bg-radial': 'radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%)',
         'token':'linear-gradient(0deg, #F3F3F3 0%, #DADADA 98.34%)',
-      }
+      },
+      fontFamily: {
+        audio: ["Audiowide", "cursive"],
+        pop: ["Poppins", "sans-serif"],
+        nexa: ["Nexa Text-Trial", "sans-serif"],
+      },
     },
   },
   plugins: [],

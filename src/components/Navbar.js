@@ -50,7 +50,7 @@ const Navbar = () => {
                 onClick={() => setNavbar(false)}
                 className="text-[#E5E5E5]  text-[24px] "
               >
-                <Link to="/game">PlayGame</Link>
+                <Link to="/game" className="font-audio ">PlayGame</Link>
               </li>
             </ul>
 
@@ -61,7 +61,7 @@ const Navbar = () => {
                     setNavbar(false);
                     handleAuthLogout();
                   }}
-                  className="inline-block max-w-xs bg-white w-full px-4 py-2 text-center  rounded-md shadow"
+                  className="inline-block font-audio  max-w-xs bg-white w-full px-4 py-2 text-center  rounded-md shadow"
                 >
                   Logout
                 </button>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 <Link
                   to="/login"
                   onClick={() => setNavbar(false)}
-                  className="inline-block max-w-xs bg-white w-full px-4 py-2 text-center  rounded-md shadow"
+                  className="inline-block font-audio  max-w-xs bg-white w-full px-4 py-2 text-center  rounded-md shadow"
                 >
                   login
                 </Link>
@@ -81,14 +81,14 @@ const Navbar = () => {
           {token ? (
             <button
               onClick={handleAuthLogout}
-              className="inline-block text-white bg-black w-full px-12 py-2 text-center  rounded-md shadow"
+              className="inline-block  font-audio text-white bg-black w-full px-12 py-2 text-center  rounded-md shadow"
             >
               Logout
             </button>
           ) : (
             <Link
               to="/login"
-              className="inline-block text-white bg-black w-full px-12 py-2 text-center  rounded-md shadow"
+              className="inline-block font-audio text-white bg-black w-full px-12 py-2 text-center  rounded-md shadow"
             >
               login
             </Link>

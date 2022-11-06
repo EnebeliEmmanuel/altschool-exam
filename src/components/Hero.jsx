@@ -27,14 +27,14 @@ function Hero() {
     >
       <div className="flex flex-col flex-1 w-full items-center sm:justify-end">
         <h3 className="text-white font-audio text-2xl  sm:text-5xl  xl:text-7xl ">
-          <span className="block">Welcome Users</span>{" "}
-          <span className="block md:inline">Make sure you log in</span> to access the game 
+          <span className="block font-audio ">Welcome Users</span>{" "}
+          <span className="block md:inline font-audio ">Make sure you log in</span> to access the game 
         </h3>
         <div className="mt-12 flex  sm:self-start small:flex-row small:items-center">
           {!token && (
             <Link
             to="/login"
-            className="inline-block bg-black w-fit px-10 py-3 text-center  rounded-md shadow"
+            className="inline-block font-audio  bg-black w-fit px-10 py-3 text-center  rounded-md shadow"
           >
             Login
           </Link>
@@ -44,7 +44,7 @@ function Hero() {
               onClick={() => {
                 setShowModal(true);
               }}
-              className="px-9 py-3 uppercase text-white rounded-lg border-[1px] font-semibold text-base tracking-widest transition-all hover:bg-white focus:bg-white hover:text-dark-text focus:text-dark-text bg-transparent border-white"
+              className="px-9 py-3  font-audio uppercase text-white rounded-lg border-[1px] font-semibold text-base tracking-widest transition-all hover:bg-white focus:bg-white hover:text-dark-text focus:text-dark-text bg-transparent border-white"
             >
               Rules
             </button>

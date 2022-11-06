@@ -28,7 +28,7 @@ const Register = () => {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block font-audio  text-gray-700 text-sm font-bold mb-2">
               Username
             </label>
             <input
@@ -41,7 +41,7 @@ const Register = () => {
             />
           </div>
           <div className="">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block font-audio  text-gray-700 text-sm font-bold mb-2">
               Password
             </label>
             <input
@@ -54,7 +54,7 @@ const Register = () => {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block font-audio  text-gray-700 text-sm font-bold mb-2">
               Confirm Password
             </label>
             <input
@@ -69,12 +69,12 @@ const Register = () => {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-[#232221] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-[#232221] font-audio  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Sign In
             </button>
             <Link
-              className="inline-block align-baseline font-bold text-sm text-[#232221]"
+              className="inline-block font-audio  align-baseline font-bold text-sm text-[#232221]"
               to="/login"
             >
               Existing account? Login
